@@ -17,6 +17,15 @@ class Game
       add_player Player.new(name, Integer(health))
     end
   end
+
+  def save_high_scores(to_file="high_scores.txt")
+    File.open(to_file, 'w') do |file|
+      file.puts "#{title} High Scores:"
+      @players.sort.each do |player|
+        file.puts "#{player.name.ljust(20, '.')},#{player.points}"
+      end
+    end
+  end
   
   def add_player(a_player)
     @players.push(a_player)
