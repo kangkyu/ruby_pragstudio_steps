@@ -11,8 +11,8 @@ class Player
     @found_treasures = Hash.new(0)
   end
 
-  def self.from_csv(line)
-    name, health = line.split(',')
+  def self.from_csv(row)
+    name, health = row
     Player.new(name, Integer(health))
   end
 
