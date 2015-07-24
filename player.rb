@@ -11,6 +11,11 @@ class Player
     @found_treasures = Hash.new(0)
   end
 
+  def self.from_csv(line)
+    name, health = line.split(',')
+    Player.new(name, Integer(health))
+  end
+
   def blam
     @health -= 10
     puts "#{@name} got blammed!"
